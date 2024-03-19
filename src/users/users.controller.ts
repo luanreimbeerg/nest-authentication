@@ -9,9 +9,8 @@ export class UsersController {
   constructor(public readonly usersService: UsersService) {}
 
   @UseGuards(AuthGuard)
-  @Get('/users')
+  @Get('/user')
   async getUserByName(@Query('name') name: string): Promise<User> {
-    console.log(name);
     return this.usersService.findOneByUsername(name);
   }
 
